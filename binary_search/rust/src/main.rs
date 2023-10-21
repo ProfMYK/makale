@@ -29,24 +29,17 @@ struct Find {
 fn main() {
     let input = fs::read_to_string("input.txt").unwrap();
     let mut find: Vec<Find> = vec![];
-    let data: Vec<Vec<i322>> = input.split_terminator('\n')
-        .enumerate()
-        .map(|(i, x)| {
-            if i < 
-            let a: Vec<i32> = x.split_terminator(' ')
-                .map(|y| {
-                    if y == "True" {
-                    } else if y == "False" {
-                    }
-
-                    let b: i32 = y.parse().unwrap();
+    let data: Vec<Vec<i32>> = input.split_terminator('\n')
+        .map(|x| {
+            if x.len() > 11 {
+                let a: Vec<i32> = x.split_terminator(" ").map(|x| {
+                    let b: i32 = x.parse().unwrap();
                     b
                 }).collect();
-            if a.len() == 1 {
-                find.push([a[0]);
+                a
+            } else {
+                let a = x.split_terminator(" ")
             }
-            
-            a
         }).filter(|x| {
             x.len() != 1
         }).collect();
